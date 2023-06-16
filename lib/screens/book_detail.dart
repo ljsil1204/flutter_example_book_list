@@ -1,29 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_example_book_list/models/book.dart';
 
 class BookDetail extends StatelessWidget {
-  final String title;
-  final String subTitle;
-  final String description;
-  final String image;
+  final Book book;
 
-  BookDetail({
-    required this.title,
-    required this.subTitle,
-    required this.description,
-    required this.image,
-  });
+  BookDetail({required this.book});
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(book.title),
       ),
       body: Column(
         children: [
           Padding(padding: EdgeInsets.all(20)),
-          Image.network(image, height: 200),
+          Image.network(book.image, height: 200),
           Padding(padding: EdgeInsets.all(20)),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,13 +30,13 @@ class BookDetail extends StatelessWidget {
                     children: [
                       Container(
                         child: Text(
-                          title,
+                          book.title,
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                       ),
                       Text(
-                        subTitle,
+                        book.subTitle,
                         style: TextStyle(fontSize: 18, color: Colors.grey),
                       )
                     ]),
@@ -109,7 +102,7 @@ class BookDetail extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.all(15),
-            child: Text(description),
+            child: Text(book.description),
           )
         ],
       ),
