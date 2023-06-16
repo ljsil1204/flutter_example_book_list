@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_example_book_list/screens/book_detail.dart';
 
 class Books extends StatelessWidget {
   @override
@@ -52,7 +53,15 @@ class BookTile extends StatelessWidget {
     return ListTile(
       title: Text(title),
       leading: Image.network(image),
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (BuildContext context) => BookDetail(
+                  title: title,
+                  subTitle: subTitle,
+                  description: description,
+                  image: image,
+                )));
+      },
     );
   }
 }

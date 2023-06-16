@@ -1,20 +1,29 @@
 import 'package:flutter/material.dart';
 
 class BookDetail extends StatelessWidget {
+  final String title;
+  final String subTitle;
+  final String description;
+  final String image;
+
+  BookDetail({
+    required this.title,
+    required this.subTitle,
+    required this.description,
+    required this.image,
+  });
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text("book title"),
+        title: Text(title),
       ),
       body: Column(
         children: [
           Padding(padding: EdgeInsets.all(20)),
-          Image.network(
-            "https://blog.kakaocdn.net/dn/0mySg/btqCUccOGVk/nQ68nZiNKoIEGNJkooELF1/img.jpg",
-            height: 200,
-          ),
+          Image.network(image, height: 200),
           Padding(padding: EdgeInsets.all(20)),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,13 +37,13 @@ class BookDetail extends StatelessWidget {
                     children: [
                       Container(
                         child: Text(
-                          "다트 배우기",
+                          title,
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                       ),
                       Text(
-                        "초보자도 쉽게",
+                        subTitle,
                         style: TextStyle(fontSize: 18, color: Colors.grey),
                       )
                     ]),
@@ -100,7 +109,7 @@ class BookDetail extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.all(15),
-            child: Text("이책은 쉽고 재밌습니다."),
+            child: Text(description),
           )
         ],
       ),
